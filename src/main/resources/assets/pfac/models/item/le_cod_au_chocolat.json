@@ -2,6 +2,6 @@
     "parent": "minecraft:item/generated",
     "textures": {
       "layer0": "minecraft:item/cod",
-      "layer1": "pfac:item/le_fishe_au_chocolat"
+      "layer1": "pfac:item/long_au_chocolat"
     }
   }
