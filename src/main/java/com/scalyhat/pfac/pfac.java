@@ -35,8 +35,6 @@ public class pfac
     public static final RegistryObject<SoundEvent> LE_FISHE_SOUNDBITE = SOUNDS.register("le_fishe_au_chocolat", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MODID, "le_fishe_au_chocolat")));
     public static final RegistryObject<SoundEvent> FISHE_CHEWED = SOUNDS.register("fishe_chewed", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(MODID, "fishe_chewed")));
 
-    ITEM_STRINGS.get();
-
     public static final RegistryObject<Item> LE_FISHE_AU_CHOCOLAT = ITEMS.register("le_fishe_au_chocolat", () ->
         new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationMod(0.3F).build())));
 
