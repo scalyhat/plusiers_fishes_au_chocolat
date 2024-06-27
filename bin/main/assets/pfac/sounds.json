@@ -1,3 +1,4 @@
 {
-    "le_fishe_au_chocolat": { "sounds":["pfac:le_fishe_au_chocolat"], "subtitle": "pfac.subtitle.le_fishe_au_chocolat" }
+    "le_fishe_au_chocolat": { "sounds":["pfac:le_fishe_au_chocolat"], "subtitle": "pfac.subtitle.le_fishe_au_chocolat" },
+    "fishe_chewed": { "sounds":["pfac:fishe_chewed"], "subtitle": "pfac.subtitle.fishe_chewed" }
 }
