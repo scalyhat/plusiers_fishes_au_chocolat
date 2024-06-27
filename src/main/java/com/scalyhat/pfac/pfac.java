@@ -1,6 +1,5 @@
 package com.scalyhat.pfac;
 
-import net.minecraft.client.gui.font.glyphs.BakedGlyph.Effect;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -42,14 +41,17 @@ public class pfac
         new CustomAttribute("Whether this entity can play the Fishe soundbite", 1).setSyncable(true));
 
     public static final RegistryObject<Item> LE_COD_AU_CHOCOLAT = ITEMS.register("le_cod_au_chocolat", () ->
-        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(0.5f).build())));
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.7f).build())));
     public static final RegistryObject<Item> LE_SALMON_AU_CHOCOLAT = ITEMS.register("le_salmon_au_chocolat", () ->
-        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(0.5f).build())));
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.8f).build())));
     public static final RegistryObject<Item> LE_PUFFERFISH_AU_CHOCOLAT = ITEMS.register("le_pufferfish_au_chocolat", () ->
-        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.4f).effect(
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(1f).effect(
             () -> new MobEffectInstance(MobEffects.POISON, 120, 3), 1).build())));
     public static final RegistryObject<Item> LE_TROPICAL_FISH_AU_CHOCOLAT = ITEMS.register("le_tropical_fish_au_chocolat", () ->
-        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f).build())));
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.6f).build())));
+
+    public static final RegistryObject<Item> LE_PUFFERFISH_WITH_HANDLE = ITEMS.register("le_pufferfish_on_stick", () ->
+        new FisheSwordItem(3, -3f, new Item.Properties().durability(64)));
 
     public pfac()
     {
@@ -72,6 +74,9 @@ public class pfac
             event.accept(LE_SALMON_AU_CHOCOLAT);
             event.accept(LE_TROPICAL_FISH_AU_CHOCOLAT);
             event.accept(LE_PUFFERFISH_AU_CHOCOLAT);
+        }
+        else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(LE_PUFFERFISH_WITH_HANDLE);
         }
     }
 
