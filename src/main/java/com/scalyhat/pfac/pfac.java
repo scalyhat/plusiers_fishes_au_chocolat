@@ -66,42 +66,42 @@ public class pfac
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    // @SubscribeEvent
-    // public void gatherData(GatherDataEvent event) {
-    //     event.getGenerator()
-    //     .addProvider(
-    //         event.includeServer(), 
-    //         output -> new DynamicLanguageProvider(
-    //             output,
-    //             MODID,
-    //             "en-us"
-    //         )
-    //     )
-    //     .addProvider(
-    //         event.includeServer(), 
-    //         output -> new DatapackBuiltinEntriesProvider(
-    //             output,
-    //             event.getLookupProvider(),
-    //             new RegistrySetBuilder().add(Registries.ITEM, bootstrap -> {
-    //                 for (Item added : Config.fisheItems) {
-    //                     FoodProperties currentFood = added.getFoodProperties(null, null);
-    //                     Integer nutrition = currentFood == null ? 5 : currentFood.getNutrition();
-    //                     Float saturationMod = currentFood == null ? 0.4f : currentFood.getSaturationModifier();
+    @SubscribeEvent
+    public void gatherData(GatherDataEvent event) {
+        event.getGenerator()
+        .addProvider(
+            event.includeServer(), 
+            output -> new DynamicLanguageProvider(
+                output,
+                MODID,
+                "en-us"
+            )
+        )
+        .addProvider(
+            event.includeServer(), 
+            output -> new DatapackBuiltinEntriesProvider(
+                output,
+                event.getLookupProvider(),
+                new RegistrySetBuilder().add(Registries.ITEM, bootstrap -> {
+                    for (Item added : Config.fisheItems) {
+                        FoodProperties currentFood = added.getFoodProperties(null, null);
+                        Integer nutrition = currentFood == null ? 5 : currentFood.getNutrition();
+                        Float saturationMod = currentFood == null ? 0.4f : currentFood.getSaturationModifier();
 
-    //                     ResourceKey<Item> currentItem = ResourceKey.create(Registries.ITEM, new ResourceLocation(MODID, added.toString().concat("_au_chocolat")));
-    //                     bootstrap.register(
-    //                         currentItem, 
-    //                         new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder()
-    //                             .nutrition(nutrition)
-    //                             .saturationMod(saturationMod)
-    //                             .build()
-    //                         )));
-    //                 }
-    //             }),
-    //             Set.of(MODID)
-    //         )
-    //     );
-    // }
+                        ResourceKey<Item> currentItem = ResourceKey.create(Registries.ITEM, new ResourceLocation(MODID, added.toString().concat("_au_chocolat")));
+                        bootstrap.register(
+                            currentItem, 
+                            new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder()
+                                .nutrition(nutrition)
+                                .saturationMod(saturationMod)
+                                .build()
+                            )));
+                    }
+                }),
+                Set.of(MODID)
+            )
+        );
+    }
 
     @SubscribeEvent
     public void addToTabs(BuildCreativeModeTabContentsEvent event) {
