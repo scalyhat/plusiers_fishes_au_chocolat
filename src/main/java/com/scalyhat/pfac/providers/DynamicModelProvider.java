@@ -17,7 +17,7 @@ public class DynamicModelProvider extends ItemModelProvider {
         super(output, modid, existingFileHelper);
     }
 
-    private final ResourceLocation chocolateTexture = new ResourceLocation("pfac:item/au_chocolat");
+    private final ResourceLocation chocolateTexture = new ResourceLocation("pfac:item/long_au_chocolat");
 
     public ItemModelBuilder chocolateItem(Item item) {
         ResourceLocation itemKey = ForgeRegistries.ITEMS.getKey(item);
