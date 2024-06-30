@@ -1,23 +1,14 @@
 package com.scalyhat.pfac;
 
-import java.util.Set;
-
-import com.scalyhat.pfac.providers.DynamicLanguageProvider;
-
-import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -49,8 +40,18 @@ public class pfac
     public static final RegistryObject<Attribute> CAN_PLAY_SOUNDBITE = ATTRIBUTES.register("fishe_sound_playable", () -> 
         new CustomAttribute("Whether this entity can play the Fishe soundbite", 1).setSyncable(true));
 
-    public static final RegistryObject<Item> LE_FISHE_AU_CHOCOLAT = ITEMS.register("le_fishe_au_chocolat", () ->
-        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().build())));
+    public static final RegistryObject<Item> LE_COD_AU_CHOCOLAT = ITEMS.register("le_cod_au_chocolat", () ->
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.7f).build())));
+    public static final RegistryObject<Item> LE_SALMON_AU_CHOCOLAT = ITEMS.register("le_salmon_au_chocolat", () ->
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(0.8f).build())));
+    public static final RegistryObject<Item> LE_PUFFERFISH_AU_CHOCOLAT = ITEMS.register("le_pufferfish_au_chocolat", () ->
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationMod(1f).effect(
+            () -> new MobEffectInstance(MobEffects.POISON, 120, 3), 1).build())));
+    public static final RegistryObject<Item> LE_TROPICAL_FISH_AU_CHOCOLAT = ITEMS.register("le_tropical_fish_au_chocolat", () ->
+        new GenericFisheItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationMod(0.6f).build())));
+
+    public static final RegistryObject<Item> LE_PUFFERFISH_WITH_HANDLE = ITEMS.register("le_pufferfish_on_stick", () ->
+        new FisheSwordItem(3, -3f, new Item.Properties().durability(64)));
 
     public pfac()
     {
@@ -106,7 +107,13 @@ public class pfac
     @SubscribeEvent
     public void addToTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(LE_FISHE_AU_CHOCOLAT);
+            event.accept(LE_COD_AU_CHOCOLAT);
+            event.accept(LE_SALMON_AU_CHOCOLAT);
+            event.accept(LE_TROPICAL_FISH_AU_CHOCOLAT);
+            event.accept(LE_PUFFERFISH_AU_CHOCOLAT);
+        }
+        else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(LE_PUFFERFISH_WITH_HANDLE);
         }
     }
 

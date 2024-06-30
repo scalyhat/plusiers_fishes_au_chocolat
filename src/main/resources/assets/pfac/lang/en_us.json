@@ -1,6 +1,10 @@
 {
-	"item.pfac.le_fishe_au_chocolat": "Le Fishe Générique au Chocolat",
+	"item.pfac.le_cod_au_chocolat": "Le Fishe Blanc au Chocolat",
+	"item.pfac.le_salmon_au_chocolat": "Le Fishe Rouge au Chocolat",
+	"item.pfac.le_tropical_fish_au_chocolat": "Le Fishe Coloré au Chocolat",
+	"item.pfac.le_pufferfish_au_chocolat": "Le Fishe Rond au Chocolat",
+	"item.pfac.le_pufferfish_on_stick": "Le Fishe Rond avec Poignée",
 
 	"pfac.subtitle.le_fishe_au_chocolat": "\"Le Fishe au Chocolat\" soundbite",
-	"pfac.subtitle.fishe_chewed": "Chewing item au chocolat"
+	"pfac.subtitle.fishe_chewed": "Chewing fishe au chocolat"
 }
