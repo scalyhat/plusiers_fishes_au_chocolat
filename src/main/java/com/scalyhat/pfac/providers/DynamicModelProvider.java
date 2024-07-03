@@ -29,7 +29,7 @@ public class DynamicModelProvider extends ItemModelProvider {
     }
 
     public void registerModels() {
-        for (Item toBeChocolated : Config.fisheItems) {
+        for (Item toBeChocolated : Config.forcedFishItems) {
             this.chocolateItem(toBeChocolated);
         }
     }

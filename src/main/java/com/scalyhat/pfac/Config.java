@@ -29,7 +29,8 @@ public class Config {
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
-    public static Set<Item> fisheItems = Set.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:cod")));
+    public static Set<Item> forcedFishItems = Set.of(ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:cod")),ForgeRegistries.ITEMS.getValue(new ResourceLocation("minecraft:salmon")));
+    public static Set<Item> fisheItems;
     public static Integer fisheSoundbiteCooldown;
 
     private static boolean validateItemName(final Object obj) {

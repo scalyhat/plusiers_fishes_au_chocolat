@@ -13,7 +13,7 @@ public class DynamicLanguageProvider extends LanguageProvider {
 
     @Override
     public void addTranslations() {
-        for (Item toBeTranslated : Config.fisheItems) {
+        for (Item toBeTranslated : Config.forcedFishItems) {
             this.add("item.pfac.".concat(toBeTranslated.toString()).concat("_au_chocolat"), "Some Item");
         }
     }
